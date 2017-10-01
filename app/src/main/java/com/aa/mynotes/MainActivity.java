@@ -103,7 +103,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         switch (id) {
             case R.id.action_delete_all:
-                deleteAllNotes();
+                if (cursorAdapter.isEmpty()) {
+                    Toast.makeText(this, R.string.no_notes_to_delete_message, Toast.LENGTH_SHORT).show();
+                } else {
+                    deleteAllNotes();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
