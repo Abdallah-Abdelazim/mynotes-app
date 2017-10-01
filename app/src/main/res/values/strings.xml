@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Notes</string>
+    <string name="action_delete_all_notes">Delete all notes</string>
+    <string name="all_notes_deleted_message">All notes deleted.</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="note_icon_content_description">Note icon</string>
+    <string name="title_activity_editor">EditorActivity</string>
+    <string name="action_delete_note">Delete note</string>
+    <string name="note_edit_text_hint">Enter your note here</string>
+    <string name="editor_title_insert_new_note">New note</string>
+    <string name="editor_title_edit_note">Note editor</string>
+    <string name="note_updated_message">Note updated</string>
+    <string name="note_deleted_message">Note deleted</string>
+</resources>
