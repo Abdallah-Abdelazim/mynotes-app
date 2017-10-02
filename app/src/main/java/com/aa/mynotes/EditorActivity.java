@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class EditorActivity extends AppCompatActivity {
         } else {
             action = Intent.ACTION_EDIT;
             setTitle(getString(R.string.editor_title_edit_note));
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);  // disable keyboard popup automatically
             noteFilter = DBOpenHelper.NOTE_ID + "=" + uri.getLastPathSegment();
             Cursor cursor = getContentResolver().query(uri, DBOpenHelper.ALL_COLUMNS, noteFilter, null, null);
             if (cursor.moveToFirst()) {
