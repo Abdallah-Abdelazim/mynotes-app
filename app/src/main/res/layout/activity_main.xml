@@ -31,6 +31,6 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@+id/include2"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_plus" />
+        app:srcCompat="@drawable/ic_action_add" />
 
 </android.support.design.widget.CoordinatorLayout>

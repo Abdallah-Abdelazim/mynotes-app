@@ -12,4 +12,5 @@
     <string name="note_updated_message">Note updated</string>
     <string name="note_deleted_message">Note deleted</string>
     <string name="no_notes_to_delete_message">There\'s no notes to delete</string>
+    <string name="note_dummy_text">A dummy text</string>
 </resources>
