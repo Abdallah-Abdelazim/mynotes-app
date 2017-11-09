@@ -9,12 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class EditorActivity extends AppCompatActivity {
 
@@ -43,6 +48,8 @@ public class EditorActivity extends AppCompatActivity {
         if (uri == null) {
             action = Intent.ACTION_INSERT;
             setTitle(getString(R.string.editor_title_insert_new_note));
+            ViewGroup bottomBar = findViewById(R.id.bottomBar);
+            bottomBar.setVisibility(View.GONE);  // completely hide the bottomBar and all its contents
         } else {
             action = Intent.ACTION_EDIT;
             setTitle(getString(R.string.editor_title_edit_note));
@@ -52,9 +59,24 @@ public class EditorActivity extends AppCompatActivity {
             if (cursor.moveToFirst()) {
                 // cursor is not empty
                 oldText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
-//                Log.d(TAG, cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED)));
+                String lastChanged = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED));
+
                 editor.setText(oldText);
                 editor.requestFocus();
+
+                SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat dateFormatter;
+                if (android.text.format.DateFormat.is24HourFormat(this)) {
+                    dateFormatter = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");    // 24 hour time format
+                } else {
+                    dateFormatter = new SimpleDateFormat("EEE, d MMM yyyy hh:mm a");  // AM/PM time format
+                }
+                TextView dateTextView = findViewById(R.id.dateTextView);
+                try {
+                    dateTextView.setText(dateFormatter.format(dateParser.parse(lastChanged)));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
             cursor.close();
         }
@@ -115,7 +137,7 @@ public class EditorActivity extends AppCompatActivity {
     private void updateNote(String newNoteText) {
         ContentValues values = new ContentValues();
         values.put(DBOpenHelper.NOTE_TEXT, newNoteText);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("en"));
         Date date = new Date();
         values.put(DBOpenHelper.NOTE_LAST_CHANGED, dateFormat.format(date));
         getContentResolver().update(NotesProvider.CONTENT_URI, values, noteFilter, null);

@@ -80,13 +80,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         startActivityForResult(new Intent(this, EditorActivity.class), RC_EDITOR);
     }
 
-    private void insertNote(String noteText) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DBOpenHelper.NOTE_TEXT, noteText);
-        Uri noteUri = getContentResolver().insert(NotesProvider.CONTENT_URI, contentValues);
-//        Log.d(TAG, "Inserted note: " + noteUri.getLastPathSegment());
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -122,14 +115,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void insertSampleData() {
-        insertNote("Simple note.");
-        insertNote("Multi-line\nnote.");
-        insertNote("Very long note with a lot of text that exceeds the width of the screen.");
-
-        restartLoader();
     }
 
     private void deleteAllNotes() {
@@ -203,4 +188,22 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<Cursor> loader) {
         cursorAdapter.swapCursor(null);
     }
+
+
+    /*** Used for testing only ***/
+    private void insertNote(String noteText) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBOpenHelper.NOTE_TEXT, noteText);
+        Uri noteUri = getContentResolver().insert(NotesProvider.CONTENT_URI, contentValues);
+//        Log.d(TAG, "Inserted note: " + noteUri.getLastPathSegment());
+    }
+
+    private void insertSampleData() {
+        insertNote("Simple note.");
+        insertNote("Multi-line\nnote.");
+        insertNote("Very long note with a lot of text that exceeds the width of the screen.");
+
+        restartLoader();
+    }
+
 }

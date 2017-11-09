@@ -21,7 +21,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main"
-        android:id="@+id/include2" />
+        android:id="@+id/include" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -29,8 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@+id/include2"
+        app:backgroundTint="@color/green"
+        app:layout_anchor="@+id/include"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_action_add" />
+        app:srcCompat="@drawable/ic_add_new_note" />
 
 </android.support.design.widget.CoordinatorLayout>

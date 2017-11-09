@@ -12,4 +12,5 @@
     <string name="note_updated_message">تم تعديل الملاحظة</string>
     <string name="note_deleted_message">تم مسح الملاحظة</string>
     <string name="no_notes_to_delete_message">لا يوجد ملاحظات لمسحها</string>
+    <string name="last_edited_text_view">آخر تعديل:</string>
 </resources>
