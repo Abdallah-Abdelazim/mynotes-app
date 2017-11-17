@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +26,7 @@ public class EditorActivity extends AppCompatActivity {
 
     private String action; // to know which action this editor is doing (whether insert or update)
     private EditText editor;
+    ViewGroup bottomBar;
     private String noteFilter;  // the where clause used in SQL statements to query a specific note
     private String oldText; // the existing text of a note before displaying it to the user
 
@@ -35,25 +35,31 @@ public class EditorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        editor = (EditText) findViewById(R.id.noteEditText);
+        editor = findViewById(R.id.noteEditText);
+        bottomBar = findViewById(R.id.bottomBar);
 
         Intent intent = getIntent();
 
         Uri uri = intent.getParcelableExtra(NotesProvider.CONTENT_ITEM_TYPE);
-        if (uri == null) {
+        if (uri == null) {  // opened for new note
+
             action = Intent.ACTION_INSERT;
             setTitle(getString(R.string.editor_title_insert_new_note));
-            ViewGroup bottomBar = findViewById(R.id.bottomBar);
+
+            editor.requestFocus();
             bottomBar.setVisibility(View.GONE);  // completely hide the bottomBar and all its contents
-        } else {
+
+        } else {   // opened for edit note
+
             action = Intent.ACTION_EDIT;
             setTitle(getString(R.string.editor_title_edit_note));
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);  // disable keyboard popup automatically
+//            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);  // disable keyboard popup automatically
+
             noteFilter = DBOpenHelper.NOTE_ID + "=" + uri.getLastPathSegment();
             Cursor cursor = getContentResolver().query(uri, DBOpenHelper.ALL_COLUMNS, noteFilter, null, null);
             if (cursor.moveToFirst()) {
@@ -62,18 +68,17 @@ public class EditorActivity extends AppCompatActivity {
                 String lastChanged = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED));
 
                 editor.setText(oldText);
-                editor.requestFocus();
 
                 SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 SimpleDateFormat dateFormatter;
-                if (android.text.format.DateFormat.is24HourFormat(this)) {
+                if (android.text.format.DateFormat.is24HourFormat(this)) {  // initialize the date formatter either in 12 or 24 hour time format
                     dateFormatter = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");    // 24 hour time format
                 } else {
                     dateFormatter = new SimpleDateFormat("EEE, d MMM yyyy hh:mm a");  // AM/PM time format
                 }
-                TextView dateTextView = findViewById(R.id.dateTextView);
+                TextView lastEditedDateTextView = findViewById(R.id.lastEditedDateTextView);
                 try {
-                    dateTextView.setText(dateFormatter.format(dateParser.parse(lastChanged)));
+                    lastEditedDateTextView.setText(dateFormatter.format(dateParser.parse(lastChanged)));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
