@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
-        String[] from = {DBOpenHelper.NOTE_TEXT};
-        int[] to = {R.id.noteTextView};
-        cursorAdapter = new SimpleCursorAdapter(this, R.layout.note_list_item, null, from, to, 0);
-//        cursorAdapter = new NotesCursorAdapter(this, null, 0); // used to test the NotesCursorAdapter
+//        String[] from = {DBOpenHelper.NOTE_TEXT};
+//        int[] to = {R.id.noteTextView};
+//        cursorAdapter = new SimpleCursorAdapter(this, R.layout.note_list_item, null, from, to, 0);
+        cursorAdapter = new NotesCursorAdapter(this, null, 0);  // used to add more customization the list items
         ListView notesListView = (ListView) findViewById(R.id.notesListView);
         notesListView.setAdapter(cursorAdapter);
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     ///////////////////////////////////////////////////////////////////////////////
     // These method are implemented for LoaderCallbacks interface.               //
     // They are called automatically for you and you never call them yourself.   //
-    // They all are callback methods                                             //
+    // They all are callback methods.                                            //
     ///////////////////////////////////////////////////////////////////////////////
 
     /**

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Used ,if needed, instead of the SimpleCursorAdapter to add more functionality and customization.
+ * Used instead of the SimpleCursorAdapter to add more functionality and customization.
  */
 public class NotesCursorAdapter extends CursorAdapter {
 
@@ -33,7 +33,7 @@ public class NotesCursorAdapter extends CursorAdapter {
 
         String noteText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
 
-        TextView noteTextView = (TextView) view.findViewById(R.id.noteTextView);
+        TextView noteTextView = view.findViewById(R.id.noteTextView);
         noteTextView.setText(noteText);
     }
 

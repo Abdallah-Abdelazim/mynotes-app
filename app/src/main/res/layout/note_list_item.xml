@@ -24,7 +24,7 @@
         app:layout_constraintRight_toLeftOf="@+id/noteTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_note" />
+        app:srcCompat="@drawable/lead_pencil" />
 
     <TextView
         android:id="@+id/noteTextView"
