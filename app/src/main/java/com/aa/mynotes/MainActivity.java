@@ -1,7 +1,6 @@
 package com.aa.mynotes;
 
 import android.app.LoaderManager;
-import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,13 +10,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.CursorAdapter;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -36,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //        int[] to = {R.id.noteTextView};
 //        cursorAdapter = new SimpleCursorAdapter(this, R.layout.note_list_item, null, from, to, 0);
         cursorAdapter = new NotesCursorAdapter(this, null, 0);  // used to add more customization the list items
-        ListView notesListView = (ListView) findViewById(R.id.notesListView);
+        ListView notesListView = findViewById(R.id.notesListView);
         notesListView.setAdapter(cursorAdapter);
 
         notesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -178,6 +177,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         cursorAdapter.swapCursor(data);
+
+        // View or hide the no notes msg
+        ViewGroup noNotesLinearLayout = findViewById(R.id.noNotesMsgLinearLayout);
+        if (cursorAdapter.isEmpty()) {  // there's no notes in the database to view
+            noNotesLinearLayout.setVisibility(View.VISIBLE);
+        }
+        else {   // there's indeed notes in the database to view
+            noNotesLinearLayout.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -190,20 +198,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
-    /*** Used for testing only ***/
-    private void insertNote(String noteText) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DBOpenHelper.NOTE_TEXT, noteText);
-        Uri noteUri = getContentResolver().insert(NotesProvider.CONTENT_URI, contentValues);
-//        Log.d(TAG, "Inserted note: " + noteUri.getLastPathSegment());
-    }
-
-    private void insertSampleData() {
-        insertNote("Simple note.");
-        insertNote("Multi-line\nnote.");
-        insertNote("Very long note with a lot of text that exceeds the width of the screen.");
-
-        restartLoader();
-    }
+    /*---------------- Used for testing only -----------------*/
+//    private void insertNote(String noteText) {
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(DBOpenHelper.NOTE_TEXT, noteText);
+//        Uri noteUri = getContentResolver().insert(NotesProvider.CONTENT_URI, contentValues);
+////        Log.d(TAG, "Inserted note: " + noteUri.getLastPathSegment());
+//    }
+//
+//    private void insertSampleData() {
+//        insertNote("Simple note.");
+//        insertNote("Multi-line\nnote.");
+//        insertNote("Very long note with a lot of text that exceeds the width of the screen.");
+//
+//        restartLoader();
+//    }
 
 }

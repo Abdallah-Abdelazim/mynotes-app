@@ -13,4 +13,5 @@
     <string name="note_deleted_message">تم مسح الملاحظة</string>
     <string name="no_notes_to_delete_message">لا يوجد ملاحظات لمسحها</string>
     <string name="last_edited_text_view">آخر تعديل:</string>
+    <string name="no_notes_msg">لا يوجد ملاحظات لعرضها.\nابدأ بإضافة بعض الملاحظات بالضغط على زر \'+\' بالأسفل.</string>
 </resources>
