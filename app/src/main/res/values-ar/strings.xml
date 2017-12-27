@@ -8,10 +8,19 @@
     <string name="editor_title_edit_note">محرّر الملاحظات</string>
     <string name="editor_title_insert_new_note">ملاحظة جديدة</string>
     <string name="note_edit_text_hint">أدخل ملاحظتك هنا</string>
-    <string name="note_icon_content_description">رمز الملاحظة</string>
     <string name="note_updated_message">تم تعديل الملاحظة</string>
     <string name="note_deleted_message">تم مسح الملاحظة</string>
     <string name="no_notes_to_delete_message">لا يوجد ملاحظات لمسحها</string>
     <string name="last_edited_text_view">آخر تعديل:</string>
     <string name="no_notes_msg">لا يوجد ملاحظات لعرضها.\nابدأ بإضافة بعض الملاحظات بالضغط على زر \'+\' بالأسفل.</string>
+    <string name="action_about">عن البرنامج</string>
+    <string name="app_description">برنامج تدوين ملاحظات بسيط ومفتوح المصدر.</string>
+    <string name="title_activity_about">عن برنامج ملاحظاتي</string>
+    <string name="view_on_github_button_text">عرض كود البرنامج على Github</string>
+    <string name="action_delete_content_description">امسح هذه الملاحظة</string>
+    <string name="share_app_chooser_dialog_title">مشاركة التطبيق مع صديق</string>
+    <string name="share_app_fab_content_description">مشاركة التطبيق مع صديق</string>
+    <string name="share_app_subject">أوصيك بتجربة هذا البرنامج الرائع: %s</string>
+    <string name="share_app_text">%1$s \n %2$s \n حمله من: %3$s .\n</string>
+    <string name="app_version_name">الإصدار %1$s</string>
 </resources>

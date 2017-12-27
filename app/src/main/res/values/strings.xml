@@ -3,7 +3,6 @@
     <string name="action_delete_all_notes">Delete all notes</string>
     <string name="all_notes_deleted_message">All notes deleted</string>
     <string name="are_you_sure">Are you sure?</string>
-    <string name="note_icon_content_description">Note icon</string>
     <string name="title_activity_editor" translatable="false">EditorActivity</string>
     <string name="action_delete_note">Delete note</string>
     <string name="note_edit_text_hint">Enter your note here</string>
@@ -16,4 +15,16 @@
     <string name="last_edited_text_view">Last edited:</string>
     <string name="dummy_date" translatable="false">yyyy-MM-dd HH:mm:ss</string>
     <string name="no_notes_msg">There\'s No notes to display.\n Start adding some by pressing \'+\' button below.</string>
+    <string name="action_about">About</string>
+    <string name="title_activity_about">About My Notes</string>
+    <string name="app_description">A simple &amp; open source note-taking app.</string>
+    <string name="app_version_name">Version %1$s</string>
+    <string name="view_on_github_button_text">View app code on Github</string>
+    <string name="action_delete_content_description">Delete this note</string>
+    <string name="github_repo_url" translatable="false">https://github.com/Abdallah-Abdelazim/MyNotes</string>
+    <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.aa.mynotes</string>
+    <string name="share_app_chooser_dialog_title">Share the app with a friend</string>
+    <string name="share_app_fab_content_description">Share the app with a friend</string>
+    <string name="share_app_subject">I recommend you to try this great app: %s</string>
+    <string name="share_app_text">"%1$s   %2$s   Install it from: %3$s . "</string>
 </resources>
