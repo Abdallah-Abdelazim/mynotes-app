@@ -64,7 +64,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:drawableStart="@drawable/ic_github_circle"
-        android:onClick="openGithubRepo"
+        android:onClick="openGitHubRepo"
         android:text="@string/view_on_github_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

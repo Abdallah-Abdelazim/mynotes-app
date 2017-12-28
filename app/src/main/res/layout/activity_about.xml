@@ -29,6 +29,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/share_app_fab_content_description"
-        app:srcCompat="@drawable/ic_share_white" />
+        app:srcCompat="@drawable/ic_share_1" />
 
 </android.support.design.widget.CoordinatorLayout>

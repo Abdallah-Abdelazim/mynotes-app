@@ -17,10 +17,11 @@
     <string name="app_description">برنامج تدوين ملاحظات بسيط ومفتوح المصدر.</string>
     <string name="title_activity_about">عن برنامج ملاحظاتي</string>
     <string name="view_on_github_button_text">عرض كود البرنامج على Github</string>
-    <string name="action_delete_content_description">امسح هذه الملاحظة</string>
     <string name="share_app_chooser_dialog_title">مشاركة التطبيق مع صديق</string>
     <string name="share_app_fab_content_description">مشاركة التطبيق مع صديق</string>
     <string name="share_app_subject">أوصيك بتجربة هذا البرنامج الرائع: %s</string>
-    <string name="share_app_text">%1$s \n %2$s \n حمله من: %3$s .\n</string>
+    <string name="share_app_text">%1$s: %2$s حمله من: %3$s\n</string>
     <string name="app_version_name">الإصدار %1$s</string>
+    <string name="action_share_note">نشر الملاحظة</string>
+    <string name="share_note_chooser_dialog_title">مشاركة الملاحظة بواسطة</string>
 </resources>

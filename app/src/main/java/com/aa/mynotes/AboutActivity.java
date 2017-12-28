@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,7 +15,7 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // display the app version
@@ -24,7 +23,7 @@ public class AboutActivity extends AppCompatActivity {
         TextView appVersionTextView = findViewById(R.id.appVersionTextView);
         appVersionTextView.setText(getString(R.string.app_version_name, versionName));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,9 +41,9 @@ public class AboutActivity extends AppCompatActivity {
     /**
      * Opens the application's Github repo on a browser.
      * Handles 'viewOnGithubButton' clicks.
-     * @param view
+     * @param view the view that dispatched the onClick event
      */
-    private void openGithubRepo(View view) {
+    public void openGitHubRepo(View view) {
         String githubRepoUrl = getString(R.string.github_repo_url);
         openWebPage(githubRepoUrl);
     }

@@ -67,8 +67,10 @@ public class EditorActivity extends AppCompatActivity {
                 oldText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
                 String lastChanged = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED));
 
+                // display the note text
                 editor.setText(oldText);
 
+                // display last edited date in the bottom bar
                 SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 SimpleDateFormat dateFormatter;
                 if (android.text.format.DateFormat.is24HourFormat(this)) {  // initialize the date formatter either in 12 or 24 hour time format
@@ -82,6 +84,8 @@ public class EditorActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
+
             }
             cursor.close();
         }
@@ -102,15 +106,27 @@ public class EditorActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case android.R.id.home:
+            case android.R.id.home: // back button pressed
                 finishEditing();
                 return true;
-            case R.id.action_delete:
+            case R.id.action_delete_note:
                 deleteNote();
+                return true;
+            case R.id.action_share_note:
+                shareNote();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void shareNote() {
+        Intent shareNoteIntent = new Intent();
+        shareNoteIntent.setAction(Intent.ACTION_SEND);
+        shareNoteIntent.putExtra(Intent.EXTRA_TEXT, oldText);
+        shareNoteIntent.setType("text/plain");
+        String chooserDialogTitle = getString(R.string.share_note_chooser_dialog_title);
+        startActivity(Intent.createChooser(shareNoteIntent, chooserDialogTitle));
     }
 
     private void finishEditing() {

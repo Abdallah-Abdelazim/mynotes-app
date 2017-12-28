@@ -3,10 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_delete"
-        android:contentDescription="@string/action_delete_content_description"
-        android:icon="@drawable/ic_delete"
+        android:id="@+id/action_share_note"
+        android:icon="@drawable/ic_share_2"
         android:orderInCategory="100"
+        android:title="@string/action_share_note"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_delete_note"
+        android:icon="@drawable/ic_delete"
+        android:orderInCategory="101"
         android:title="@string/action_delete_note"
         app:showAsAction="ifRoom" />
 </menu>
