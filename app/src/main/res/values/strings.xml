@@ -19,7 +19,7 @@
     <string name="title_activity_about">About My Notes</string>
     <string name="app_description">A simple &amp; open source note-taking app.</string>
     <string name="app_version_name">Version %1$s</string>
-    <string name="view_on_github_button_text">View app code on Github</string>
+    <string name="view_on_github_button_text">View app on Github</string>
     <string name="github_repo_url" translatable="false">https://github.com/Abdallah-Abdelazim/MyNotes</string>
     <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.aa.mynotes</string>
     <string name="share_app_chooser_dialog_title">Share the app with a friend</string>
