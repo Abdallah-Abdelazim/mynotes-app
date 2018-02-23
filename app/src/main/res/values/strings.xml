@@ -14,7 +14,7 @@
     <string name="note_dummy_text" translatable="false">A dummy text</string>
     <string name="last_edited_text_view">Last edited:</string>
     <string name="dummy_date" translatable="false">yyyy-MM-dd HH:mm:ss</string>
-    <string name="no_notes_msg">There\'s No notes to display.\n Start adding some by pressing \'+\' button below.</string>
+    <string name="no_notes_msg">There\'s no notes to display.\n Start adding some by pressing \'+\' button below.</string>
     <string name="action_about">About</string>
     <string name="title_activity_about">About My Notes</string>
     <string name="app_description">A simple &amp; open source note-taking app.</string>
