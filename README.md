@@ -1,6 +1,7 @@
 # My Notes - Take cool notes anywhere
-![Logo](/Logo/logo6_jbeguna04.png)
-![Logo](/Logo/Logo_loydjayme25_no_background_143x135.png)  
+![original_logo](/Logo/original_logo_143x143.png)
+![logo_by_jbeguna04](/Logo/logo6_jbeguna04.png)
+![logo_by_loydjayme25](/Logo/Logo_loydjayme25_no_background_143x135.png)  
 
 My notes allows you to take text notes on your Android phone. You can take & view your notes anytime and anywhere as the application works offline.  
 App available on the Google Play Store [here](https://play.google.com/store/apps/details?id=com.aa.mynotes).  
