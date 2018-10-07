@@ -7,7 +7,7 @@ Also available on Amazon Appstore [here](http://a.co/dSgDfIh).
 
 ## Contributors
 Jibbie R. Eguna ([jbeguna04](https://github.com/jbeguna04)) : logo design  
-[loydjayme25](https://github.com/loydjayme25) : logo design  
+Loyd Jayme ([loydjayme25](https://github.com/loydjayme25)) : logo design  
 
 ## License
 This project is licensed under the [GPLv3](https://github.com/Abdallah-Abdelazim/MyNotes/blob/master/LICENSE) license.  
