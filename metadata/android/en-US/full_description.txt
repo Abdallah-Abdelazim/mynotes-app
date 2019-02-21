@@ -1,2 +1,2 @@
 My Notes allows you to take text notes on your Android phone. You can take & view your notes anytime and anywhere; the application works entirely offline.
-My Notes is an open source application. You can check its source code at this GitHub repository: https://github.com/Abdallah-Abdelazim/My-Notes
+My Notes is an open source project. You can check its source code on GitHub: https://github.com/Abdallah-Abdelazim/My-Notes
