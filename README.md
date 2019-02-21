@@ -2,6 +2,7 @@
 [![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg)](https://github.com/Abdallah-Abdelazim/My-Notes/blob/master/LICENSE)
 [![Latest Version](https://img.shields.io/badge/latest%20ver-v1.5-brightgreen.svg)](https://github.com/Abdallah-Abdelazim/My-Notes/releases/latest)  
 My Notes allows you to take text notes on your Android phone. You can take & view your notes anytime and anywhere; the application works entirely offline.  
+
 App available on the Google Play Store [here](https://play.google.com/store/apps/details?id=com.aa.mynotes).  
 Also available on Amazon Appstore [here](http://a.co/dSgDfIh).  
 
