@@ -1,4 +1,4 @@
-package com.aa.mynotes;
+package com.aa.mynotes.activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.aa.mynotes.R;
+import com.aa.mynotes.data.DBOpenHelper;
+import com.aa.mynotes.data.NotesProvider;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

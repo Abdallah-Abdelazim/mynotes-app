@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.aa.mynotes.EditorActivity"
+    tools:context="com.aa.mynotes.activities.EditorActivity"
     tools:showIn="@layout/activity_editor"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true" >

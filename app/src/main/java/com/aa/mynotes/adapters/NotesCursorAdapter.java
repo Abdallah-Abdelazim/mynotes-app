@@ -1,4 +1,4 @@
-package com.aa.mynotes;
+package com.aa.mynotes.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.aa.mynotes.R;
+import com.aa.mynotes.data.DBOpenHelper;
 
 /**
  * Used instead of the SimpleCursorAdapter to add more functionality and customization.

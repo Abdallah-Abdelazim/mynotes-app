@@ -1,4 +1,4 @@
-package com.aa.mynotes;
+package com.aa.mynotes.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

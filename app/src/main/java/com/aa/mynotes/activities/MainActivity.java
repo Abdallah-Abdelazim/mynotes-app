@@ -1,4 +1,4 @@
-package com.aa.mynotes;
+package com.aa.mynotes.activities;
 
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -20,6 +20,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.aa.mynotes.R;
+import com.aa.mynotes.adapters.NotesCursorAdapter;
+import com.aa.mynotes.data.NotesProvider;
 
 /**
  * This class implements the Loader interface which execute the data operations on a background thread

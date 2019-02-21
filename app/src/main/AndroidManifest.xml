@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,28 +21,28 @@
         </activity>
 
         <provider
-            android:name=".NotesProvider"
+            android:name=".data.NotesProvider"
             android:authorities="com.aa.mynotes.notesprovider"
             android:exported="false" />
 
         <activity
-            android:name=".EditorActivity"
+            android:name=".activities.EditorActivity"
             android:label="@string/title_activity_editor"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.aa.mynotes.MainActivity" />
+                android:value="com.aa.mynotes.activities.MainActivity" />
         </activity>
 
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.aa.mynotes.MainActivity" />
+                android:value="com.aa.mynotes.activities.MainActivity" />
         </activity>
     </application>
 

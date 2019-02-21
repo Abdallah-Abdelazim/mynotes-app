@@ -1,4 +1,4 @@
-package com.aa.mynotes;
+package com.aa.mynotes.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import com.aa.mynotes.BuildConfig;
+import com.aa.mynotes.R;
 
 public class AboutActivity extends AppCompatActivity {
 
