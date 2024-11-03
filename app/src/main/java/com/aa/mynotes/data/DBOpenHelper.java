@@ -33,6 +33,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     /**
      * The onCreate method is called the first time this class is instantiated and it result in
      * creating the database structure id it doesn't already exist.
+     *
      * @param db
      */
     @Override
@@ -44,6 +45,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      * The onUpgrade method is called when you've changed the database version
      * and the user opens the app for the first time after that happens.
      * You can put code in the onUpgrade method that can rebuild the database with the new structure.
+     *
      * @param db
      * @param oldVersion
      * @param newVersion

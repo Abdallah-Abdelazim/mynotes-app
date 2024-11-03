@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final int RC_EDITOR = 111;
 
     private CursorAdapter cursorAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,20 +64,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 Intent intent = new Intent(MainActivity.this, EditorActivity.class);
                 // the id argument is the primary key id of the SQL record represented in the clicked list item.
                 /*
-                * here's how it's working in the background:
-                * The Content Provider when used with an SQLite database with a primary key column
-                * requires the primary key column to have a name of "_id".
-                * The Content Provider gets the value from that named column and passes it back
-                * to the list. So by the time we get this value back, we know exactly
-                * which item we want.
-                * */
+                 * here's how it's working in the background:
+                 * The Content Provider when used with an SQLite database with a primary key column
+                 * requires the primary key column to have a name of "_id".
+                 * The Content Provider gets the value from that named column and passes it back
+                 * to the list. So by the time we get this value back, we know exactly
+                 * which item we want.
+                 * */
                 Uri noteUri = Uri.parse(NotesProvider.CONTENT_URI + "/" + id);
                 intent.putExtra(NotesProvider.CONTENT_ITEM_TYPE, noteUri);
                 startActivityForResult(intent, RC_EDITOR);
             }
         });
 
-        getLoaderManager().initLoader(0, null,this);
+        getLoaderManager().initLoader(0, null, this);
     }
 
     private void openEditorForNewNote() {
@@ -97,19 +98,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        switch (id) {
-            case R.id.action_delete_all:
-                if (cursorAdapter.isEmpty()) {
-                    Toast.makeText(this, R.string.no_notes_to_delete_message, Toast.LENGTH_SHORT).show();
-                } else {
-                    deleteAllNotes();
-                }
-                return true;
-            case R.id.action_about:
-                startActivity(new Intent(this, AboutActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (id == R.id.action_delete_all) {
+            if (cursorAdapter.isEmpty()) {
+                Toast.makeText(this, R.string.no_notes_to_delete_message, Toast.LENGTH_SHORT).show();
+            } else {
+                deleteAllNotes();
+            }
+            return true;
+        } else if (id == R.id.action_about) {
+            startActivity(new Intent(this, AboutActivity.class));
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -164,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     /**
      * This method is called whenever data is needed from the content provider.
+     *
      * @param id
      * @param args
      * @return
@@ -178,8 +179,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
      * and when the data comes back this method is called for you.
      * You job is to take the data represented by the Cursor object named data and pass it
      * to the CursorAdapter.
+     *
      * @param loader
-     * @param data data represented by the Cursor object
+     * @param data   data represented by the Cursor object
      */
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
@@ -189,14 +191,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         ViewGroup noNotesLinearLayout = findViewById(R.id.noNotesMsgLinearLayout);
         if (cursorAdapter.isEmpty()) {  // there's no notes in the database to view
             noNotesLinearLayout.setVisibility(View.VISIBLE);
-        }
-        else {   // there's indeed notes in the database to view
+        } else {   // there's indeed notes in the database to view
             noNotesLinearLayout.setVisibility(View.GONE);
         }
     }
 
     /**
      * The onLoaderReset method is called whenever the data needs to be wiped out.
+     *
      * @param loader
      */
     @Override

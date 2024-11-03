@@ -30,7 +30,7 @@ public class NotesProvider extends ContentProvider {
      * A Uniform Resource Identifier that identifies the content provider.
      * It includes the authority and the base path.
      */
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH );
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
 
     // Constant to identify the requested query operation
     private static final int NOTES = 1;
@@ -42,7 +42,7 @@ public class NotesProvider extends ContentProvider {
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     public static final String CONTENT_ITEM_TYPE = "Note";
-    
+
     static {
         uriMatcher.addURI(AUTHORITY, BASE_PATH, NOTES);
         uriMatcher.addURI(AUTHORITY, BASE_PATH + "/#", NOTE_ID);
@@ -58,10 +58,9 @@ public class NotesProvider extends ContentProvider {
     }
 
     /**
-     *
      * @param uri
      * @param projection
-     * @param selection The where clause to filter he data (specify one or set it to null to get all data in a table)
+     * @param selection     The where clause to filter he data (specify one or set it to null to get all data in a table)
      * @param selectionArgs
      * @param sortOrder
      * @return
@@ -92,7 +91,6 @@ public class NotesProvider extends ContentProvider {
     }
 
     /**
-     *
      * @param uri
      * @param values key-value pair
      *               (similar to Bundle class but the Bundle class tends to be used to
@@ -109,9 +107,8 @@ public class NotesProvider extends ContentProvider {
     }
 
     /**
-     *
      * @param uri
-     * @param selection (whereClause)
+     * @param selection     (whereClause)
      * @param selectionArgs (whereArgs)
      * @return number of rows deleted
      */
@@ -121,7 +118,6 @@ public class NotesProvider extends ContentProvider {
     }
 
     /**
-     *
      * @param uri
      * @param values
      * @param selection

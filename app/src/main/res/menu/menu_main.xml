@@ -6,7 +6,7 @@
         android:id="@+id/action_delete_all"
         android:orderInCategory="101"
         android:title="@string/action_delete_all_notes"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_about"
         android:orderInCategory="102"

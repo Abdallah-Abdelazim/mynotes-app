@@ -44,6 +44,7 @@ public class AboutActivity extends AppCompatActivity {
     /**
      * Opens the application's Github repo on a browser.
      * Handles 'viewOnGithubButton' clicks.
+     *
      * @param view the view that dispatched the onClick event
      */
     public void openGitHubRepo(View view) {
@@ -53,6 +54,7 @@ public class AboutActivity extends AppCompatActivity {
 
     /**
      * Opens the web page with the given url in the default device's browser.
+     *
      * @param url The URL of the web page to open.
      */
     private void openWebPage(String url) {
@@ -66,6 +68,7 @@ public class AboutActivity extends AppCompatActivity {
     /**
      * Shares small description of the app associated with the link for more info (or install).
      * Supports sharing on Messenger, WhatsApp, Hangouts, Email, Twitter, Skype, Google+, etc...
+     *
      * @param appName
      * @param smallDescription
      * @param url
