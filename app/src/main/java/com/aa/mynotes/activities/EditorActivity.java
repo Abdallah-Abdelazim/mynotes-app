@@ -109,18 +109,17 @@ public class EditorActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home: // back button pressed
-                finishEditing();
-                return true;
-            case R.id.action_delete_note:
-                deleteNote();
-                return true;
-            case R.id.action_share_note:
-                shareNote();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (id == android.R.id.home) { // back button pressed
+            finishEditing();
+            return true;
+        } else if (id == R.id.action_delete_note) {
+            deleteNote();
+            return true;
+        } else if (id == R.id.action_share_note) {
+            shareNote();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 

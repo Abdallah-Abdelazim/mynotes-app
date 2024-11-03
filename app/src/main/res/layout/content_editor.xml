@@ -9,7 +9,7 @@
     tools:context="com.aa.mynotes.activities.EditorActivity"
     tools:showIn="@layout/activity_editor"
     android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true" >
+    android:focusableInTouchMode="true">
 
     <EditText
         android:id="@+id/noteEditText"

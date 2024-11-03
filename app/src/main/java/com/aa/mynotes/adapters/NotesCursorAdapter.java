@@ -26,10 +26,9 @@ public class NotesCursorAdapter extends CursorAdapter {
     }
 
     /**
-     *
      * @param view
      * @param context
-     * @param cursor points to the particular row that it's supposed to be displayed.
+     * @param cursor  points to the particular row that it's supposed to be displayed.
      */
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
