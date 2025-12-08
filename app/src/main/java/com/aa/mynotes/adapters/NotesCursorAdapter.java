@@ -2,20 +2,24 @@ package com.aa.mynotes.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v4.widget.CursorAdapter;
+// import android.support.v4.widget.CursorAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.cursoradapter.widget.CursorAdapter;
+
 import com.aa.mynotes.R;
+import com.aa.mynotes.activities.MainActivity;
 import com.aa.mynotes.data.DBOpenHelper;
 
 /**
  * Used instead of the SimpleCursorAdapter to add more functionality and customization.
  */
 public class NotesCursorAdapter extends CursorAdapter {
-
+    private static final String TAG = MainActivity.class.getSimpleName();
     public NotesCursorAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
     }
@@ -32,8 +36,12 @@ public class NotesCursorAdapter extends CursorAdapter {
      */
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-
-        String noteText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
+        int index = cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT);
+        if (index == -1) {
+            Log.w(TAG, "index = -1 (bindView)");
+            return;
+        }
+        String noteText = cursor.getString(index);
 
         TextView noteTextView = view.findViewById(R.id.noteTextView);
         noteTextView.setText(noteText);

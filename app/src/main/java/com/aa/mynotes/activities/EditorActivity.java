@@ -5,8 +5,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,8 +69,18 @@ public class EditorActivity extends AppCompatActivity {
             Cursor cursor = getContentResolver().query(uri, DBOpenHelper.ALL_COLUMNS, noteFilter, null, null);
             if (cursor.moveToFirst()) {
                 // cursor is not empty
-                oldText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
-                String lastChanged = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED));
+                int index = cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT);
+                if (index == -1) {
+                    Log.w(TAG, "index = -1");
+                    return;
+                }
+                oldText = cursor.getString(index);
+                int index2 = cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED);
+                if (index2 == -1) {
+                    Log.w(TAG, "index2 = -1");
+                    return;
+                }
+                String lastChanged = cursor.getString(index2);
 
                 // display the note text
                 editor.setText(oldText);
@@ -183,6 +194,7 @@ public class EditorActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         finishEditing();
     }
 }

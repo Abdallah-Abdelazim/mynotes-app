@@ -8,11 +8,13 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.CursorAdapter;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+// import android.support.design.widget.FloatingActionButton;
+// import android.support.v4.widget.CursorAdapter;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cursoradapter.widget.CursorAdapter;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 import com.aa.mynotes.R;
 import com.aa.mynotes.adapters.NotesCursorAdapter;
 import com.aa.mynotes.data.NotesProvider;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * This class implements the Loader interface which execute the data operations on a background thread
