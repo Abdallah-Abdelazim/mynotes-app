@@ -3,7 +3,7 @@
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Abdallah-Abdelazim/mynotes-app)](https://github.com/Abdallah-Abdelazim/mynotes-app/releases/latest)  
 My Notes allows you to take text notes on your Android phone. You can take & view your notes anytime and anywhere; the application works entirely offline.
 
-App available on the Google Play Store [here](https://play.google.com/store/apps/details?id=com.aa.mynotes), on F-Droid [here](https://f-droid.org/packages/com.aa.mynotes/) and also on Amazon Appstore [here](http://a.co/dSgDfIh).
+App available on the Google Play Store [here](https://play.google.com/store/apps/details?id=com.aa.mynotes) and on F-Droid [here](https://f-droid.org/packages/com.aa.mynotes/).
 
 <img src="./metadata/android/en-US/images/icon.png" alt="original_logo" width="240" />
 
