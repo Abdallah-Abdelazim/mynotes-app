@@ -33,8 +33,9 @@ Data flow for any note mutation: Activity → `ContentResolver` → `NotesProvid
 
 ## Notable Constraints
 
-- **Legacy Android Support Library, not AndroidX**: dependencies are `com.android.support:appcompat-v7`/`design`/`constraint-layout` (support-lib, pre-`androidx.*` namespaces), even though `gradle.properties` sets `android.useAndroidX=true`. Do not introduce `androidx.*` imports into existing classes without migrating the whole module — mixing the two in one file will not compile.
-- **Kotlin is wired into the build (`org.jetbrains.kotlin.android` plugin, `kotlinOptions.jvmTarget = '11'`) but no production Kotlin source exists yet** — all current code is Java. New files can be Kotlin, but there's no established Kotlin convention in this codebase to follow.
+- **AndroidX, not the legacy Support Library**: the app was migrated off `com.android.support:*` to `androidx.appcompat`, `com.google.android.material`, and `androidx.constraintlayout`. `CursorAdapter` deliberately uses the plain framework `android.widget.CursorAdapter` (not an AndroidX wrapper — none exists; the framework class has been available since API 1).
+- **AGP 9's built-in Kotlin support is used, with no `kotlin-android` plugin applied** — that plugin is incompatible with AGP 9's new DSL. There's no production Kotlin source yet; new files can be Kotlin without any extra plugin wiring.
 - **No dependency injection, no view model layer, no repository abstraction** — activities talk to the `ContentProvider` directly. Keep new code consistent with this direct style rather than introducing new architectural layers unless asked.
-- `minSdk 21`, `compileSdk`/`targetSdk` tracked in `app/build.gradle`; `versionCode`/`versionName` there are bumped on release.
+- `minSdk 23`, `compileSdk`/`targetSdk 37`, Java 21 toolchain — tracked in `app/build.gradle`; `versionCode`/`versionName` there are bumped on release.
+- `EditorActivity` intercepts back navigation via `OnBackPressedDispatcher`/`OnBackPressedCallback`, not an `onBackPressed()` override — required since predictive back gestures (default from Android 16+/API 36+) bypass `onBackPressed()` entirely.
 - Renovate (`renovate.json`) manages dependency update PRs against `master`.

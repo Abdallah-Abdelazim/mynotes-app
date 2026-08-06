@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.aa.mynotes.R;
 import com.aa.mynotes.data.DBOpenHelper;
@@ -47,6 +49,13 @@ public class EditorActivity extends AppCompatActivity {
         editor = findViewById(R.id.noteEditText);
         bottomBar = findViewById(R.id.bottomBar);
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finishEditing();
+            }
+        });
+
         Intent intent = getIntent();
 
         Uri uri = intent.getParcelableExtra(NotesProvider.CONTENT_ITEM_TYPE);
@@ -68,8 +77,8 @@ public class EditorActivity extends AppCompatActivity {
             Cursor cursor = getContentResolver().query(uri, DBOpenHelper.ALL_COLUMNS, noteFilter, null, null);
             if (cursor.moveToFirst()) {
                 // cursor is not empty
-                oldText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
-                String lastChanged = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_LAST_CHANGED));
+                oldText = cursor.getString(cursor.getColumnIndexOrThrow(DBOpenHelper.NOTE_TEXT));
+                String lastChanged = cursor.getString(cursor.getColumnIndexOrThrow(DBOpenHelper.NOTE_LAST_CHANGED));
 
                 // display the note text
                 editor.setText(oldText);
@@ -181,8 +190,4 @@ public class EditorActivity extends AppCompatActivity {
         finish();
     }
 
-    @Override
-    public void onBackPressed() {
-        finishEditing();
-    }
 }
