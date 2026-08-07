@@ -23,7 +23,7 @@ class NotesScreenTest {
     fun emptyNotes_showsNoNotesMessage() {
         setContent(notes = emptyList())
 
-        composeTestRule.onNodeWithText("There're no notes to display.\n Start adding some by pressing '+' button below.")
+        composeTestRule.onNodeWithText("There are no notes to display.\n Start adding some by pressing '+' button below.")
             .assertExists()
     }
 
