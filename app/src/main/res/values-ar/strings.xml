@@ -14,6 +14,7 @@
     <string name="last_edited_text_view">آخر تعديل:</string>
     <string name="no_notes_msg">لا يوجد ملاحظات لعرضها.\nابدأ بإضافة بعض الملاحظات بالضغط على زر \'+\' بالأسفل.</string>
     <string name="action_about">عن البرنامج</string>
+    <string name="content_description_navigate_up">للأعلى</string>
     <string name="app_description">برنامج تدوين ملاحظات بسيط ومفتوح المصدر.</string>
     <string name="title_activity_about">عن برنامج ملاحظاتي</string>
     <string name="view_on_github_button_text">عرض البرنامج على Github</string>
