@@ -103,6 +103,7 @@ public class NotesProvider extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         long id = database.insert(DBOpenHelper.TABLE_NOTES, null, values);
+        getContext().getContentResolver().notifyChange(CONTENT_URI, null);
 
         return Uri.parse(BASE_PATH + "/" + id);
     }
@@ -115,7 +116,9 @@ public class NotesProvider extends ContentProvider {
      */
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return database.delete(DBOpenHelper.TABLE_NOTES, selection, selectionArgs);
+        int rowsDeleted = database.delete(DBOpenHelper.TABLE_NOTES, selection, selectionArgs);
+        getContext().getContentResolver().notifyChange(CONTENT_URI, null);
+        return rowsDeleted;
     }
 
     /**
@@ -127,7 +130,9 @@ public class NotesProvider extends ContentProvider {
      */
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return database.update(DBOpenHelper.TABLE_NOTES, values, selection, selectionArgs);
+        int rowsUpdated = database.update(DBOpenHelper.TABLE_NOTES, values, selection, selectionArgs);
+        getContext().getContentResolver().notifyChange(CONTENT_URI, null);
+        return rowsUpdated;
     }
 
 }

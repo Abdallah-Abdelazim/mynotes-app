@@ -3,6 +3,8 @@
     <string name="action_delete_all_notes">Delete all notes</string>
     <string name="all_notes_deleted_message">All notes deleted</string>
     <string name="are_you_sure">Are you sure?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
     <string name="title_activity_editor" translatable="false">EditorActivity</string>
     <string name="action_delete_note">Delete note</string>
     <string name="note_edit_text_hint">Enter your note here</string>
@@ -17,6 +19,8 @@
     <string name="no_notes_msg">There\'re no notes to display.\n Start adding some by pressing \'+\' button below.</string>
     <string name="action_about">About</string>
     <string name="content_description_navigate_up">Navigate up</string>
+    <string name="content_description_add_note">Add note</string>
+    <string name="content_description_more_options">More options</string>
     <string name="title_activity_about">About My Notes</string>
     <string name="app_description">A simple &amp; open source note-taking app.</string>
     <string name="app_version_name">Version %1$s</string>
