@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:9.3.1'
+        classpath 'com.android.tools.build:gradle:9.3.2'
         // AGP 9 has a built-in Kotlin support; this overrides its bundled default (2.2.10) with the latest stable KGP.
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.10'
         classpath 'org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:2.4.10'
