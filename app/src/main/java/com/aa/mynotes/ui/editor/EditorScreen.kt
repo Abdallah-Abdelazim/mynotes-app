@@ -38,7 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aa.mynotes.R
 import com.aa.mynotes.ui.theme.ColorPrimary
-import com.aa.mynotes.ui.theme.ColorPrimaryText
 import com.aa.mynotes.ui.theme.MyNotesTheme
 
 const val NOTE_TEXT_FIELD_TAG = "noteTextField"
@@ -112,8 +111,7 @@ fun EditorScreen(
 
 @Composable
 private fun NoteTextField(noteText: String, onNoteTextChange: (String) -> Unit, modifier: Modifier = Modifier) {
-    // A plain BasicTextField mirrors the original EditText: no background, no
-    // indicator line, just a hint shown while empty.
+    val textColor = MaterialTheme.colorScheme.onSurface
     Box(modifier = modifier.fillMaxWidth().padding(8.dp)) {
         if (noteText.isEmpty()) {
             Text(
@@ -126,9 +124,9 @@ private fun NoteTextField(noteText: String, onNoteTextChange: (String) -> Unit, 
             value = noteText,
             onValueChange = onNoteTextChange,
             modifier = Modifier.fillMaxSize().testTag(NOTE_TEXT_FIELD_TAG),
-            textStyle = TextStyle(fontSize = 22.sp, color = ColorPrimaryText),
+            textStyle = TextStyle(fontSize = 22.sp, color = textColor),
             keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
-            cursorBrush = SolidColor(ColorPrimaryText),
+            cursorBrush = SolidColor(textColor),
         )
     }
 }
