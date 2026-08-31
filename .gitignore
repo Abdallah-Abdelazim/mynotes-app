@@ -8,3 +8,7 @@
 /captures
 .externalNativeBuild
 .kotlin
+
+# direnv
+.envrc
+.envrc.local
